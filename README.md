@@ -34,7 +34,15 @@ You can see how to connect a 1-wire sensor to a Riffle protoboard below.  We've 
 
 ## Code for i2c Temperature Sensor Datalogging with a Riffle
 
-The Arduino code [riffle_one_wire.ino] in this repository will measure temperature using a 1-wire sensor as setup above.  It assumes that the 1-wire sensor signal line is connected to D3, but this can be changed in the code if another digital pin is used.
+Now that you've set up the circuit, here's how to get a Riffle logging 1-wire temperature values to a microSD card.
+
+Download this entire repository using the button on this page above (or [this link](https://github.com/dwblair/riffle-one-wire/archive/master.zip) should work).  
+
+First, we need to install a 1-wire library.  In this repo we include a snapshot of [Paul Stoffregen's 1-wire library](https://github.com/PaulStoffregen/OneWire). Copy the folder labeled "OneWire" into the "libraries" folder of your Arduino IDE "sketchbook" folder.
+
+Then, upload the "riffle_one_wire.ino" code onto the Riffle, choosing "Arduino UNO" as the board type. 
+
+This code will measure temperature using a 1-wire sensor as setup above.  It assumes that the 1-wire sensor signal line is connected to D3, but this can be changed in the code if another digital pin is used.
  
 The data is output in "TSV" format, with tabs separating columns of data (timestamp in the first column, RTC temperature in the second column, thermistor temperature in the third column).
 
