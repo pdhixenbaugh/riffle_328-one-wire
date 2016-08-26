@@ -1,29 +1,24 @@
-# Measuring temperature using an i2c temperature sensor using a Riffle
+# Measuring temperature using an 1-wire temperature sensor using a Riffle
 
-<img src="pics/one_wire_pic.png" width=200>
+<img src="pics/one_wire_pic.png" width=400>
 
-## i2c basics
+## 1-wire basics
 
-A [thermistor](https://en.wikipedia.org/wiki/Thermistor) provides a simple, precise way of measuring temperature.  The resistance of a thermistor is dependent on temperature in a particular way -- if we know this relationship, then we can measure temperature by measuring the resistance of the thermistor (something we can do with a simple electronic circuit.)
+The [1-wire](https://en.wikipedia.org/wiki/1-Wire) protocol allows for sensor readings to be retrieved using only a single signal line, along with power and ground lines.  Some 1-wire sensor variants also allow the signal line to serve as the power line, reducing the number of needed signal lines to two. It is a bus protocol, allowing more than one device to be connected in parallel; every 1-wire sensor has a unique identifier, so many can be placed on the same bus, spanning several meters of wire length. 
 
-Adafruit has a [great tutorial](https://learn.adafruit.com/thermistor/overview) on thermistors, and measuring them with an Arduino.  The Riffle works very similarly to an Arduino, so their tutorial is a good resource for the Riffle circuitry as well. 
+1-wire devices require that specialized code be loaded onto an Arduino or Riffle in order to allow for sensor readings.  Usually this is accomplished by loading a dedicated 1-wire library onto the microcontroller.  We'll be doing that in the guide below. 
 
-## i2c temperature sensors
+## 1-wire temperature sensors.
 
-There are several types of thermistors, and the relationship between resistance and temperature differs depending on the type.  It's important to know what type of thermistor you're using in order that your circuit and code are appropriate. 
+1-wire temperature sensors are in wide use, as they are simple to use, and the bus configuration allows for many temperature sensors to be used at once, making e.g. distributed temperature measurements over an area.
 
-The particular type of thermistor we'll be covering below is an "NTC" or "Negative Temperature Coefficient" thermistor -- which means that the resistance decreases as the temeprature increases.  Typically, for NTC thermistors, the important parameters to know are **B** -- the "B coefficient" of the thermistor -- and **R_o**, the resistance of the thermistor at room temperature (defined as 25 C).  
-
-Here, we're using the same thermistor that is used in the Adafruit tutorial linked to above, which has the following properties: 
-
-- **R_o** -- the resistance of the thermistor at 25 C -- is 10K
-- **B** -- the "B parameter" -- is 3950
-
-These numbers will show up in our Riffle temperature analysis code.
+We'll be using a waterproof version of the DS18B20, a popular 1-wire temperature sensor that comes in several varieties. Any chip or sensor labeled 'DS18B20' should work just as well.  
 
 ## i2c Circuit
 
-**NOTE:**  Usually, i2c devices require 'pullups' -- resistors that connect the signal lines (SCL and SDA) to the power line.  On the Riffle, these 'pullups' are already present on the main Riffle board (they are needed for other i2c chips on the Riffle).  So you do not need to provide i2c pullups in your own circuit.  If these pullup resistors are already present on the board you are using, they usually won't interfere with your measurement.  
+As described above, we'll simply be connecting the 1-wire power and ground lines to the 3.3V and GND lines on the Riffle; we can connect the 1-wire signal line to any digital pin.
+
+For 1-wire bus systems on 3.3V microcontrollers, a 4.7K 'pullup resistor' is required on the signal line -- i.e., we need to connect  the signal line to 3.3V via a 4.7K resistor.
 
 <img src="pics/one_wire_schem.png">
 
