@@ -2,6 +2,8 @@
 
 <img src="pics/one_wire_pic.png" width=400>
 
+**Note**: If this is your first time programming a Riffle, you'll probably want to check out the [Riffle: Getting Started instructions](https://github.com/dwblair/Riffle-Getting-Started), which will show you how to set up the Arduino IDE and the Riffle for programming and datalogging.
+
 ## 1-wire basics
 
 The [1-wire](https://en.wikipedia.org/wiki/1-Wire) protocol allows for sensor readings to be retrieved using only a single signal line, along with power and ground lines.  Some 1-wire sensor variants also allow the signal line to serve as the power line, reducing the number of needed signal lines to two. It is a bus protocol, allowing more than one device to be connected in parallel; every 1-wire sensor has a unique identifier, so many can be placed on the same bus, spanning several meters of wire length. 
@@ -38,13 +40,13 @@ Now that you've set up the circuit, here's how to get a Riffle logging 1-wire te
 
 1. Download this entire repository using the button on this page above (or [this link](https://github.com/dwblair/riffle-one-wire/archive/master.zip) should work).  
 
-2. We need to install a 1-wire library.  In this repo we include a snapshot of [Paul Stoffregen's 1-wire library](https://github.com/PaulStoffregen/OneWire). Copy the folder labeled "OneWire" into the "libraries" folder of your Arduino IDE "sketchbook" folder.
+2. Copy all of the libraries labeled in the "libraries" folder to the "libraries" folder in your Arduino IDE "sketchbook" folder.
 
 3. Then, upload the "riffle_one_wire.ino" code onto the Riffle, choosing "Arduino UNO" as the board type. 
 
 This code will start measuring temperature using a 1-wire sensor as setup above.  It assumes that the 1-wire sensor signal line is connected to D3, but this can be changed in the code if another digital pin is used.
  
-The data is output in "TSV" format, with tabs separating columns of data (timestamp in the first column, RTC temperature in the second column, thermistor temperature in the third column).
+The data is output in "TSV" format, with tabs separating columns of data (timestamp in the first column, 1-wire temperature in the third column).
 
 
 
