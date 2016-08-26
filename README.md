@@ -8,7 +8,7 @@ The [1-wire](https://en.wikipedia.org/wiki/1-Wire) protocol allows for sensor re
 
 1-wire devices require that specialized code be loaded onto an Arduino or Riffle in order to allow for sensor readings.  Usually this is accomplished by loading a dedicated 1-wire library onto the microcontroller.  We'll be doing that in the guide below. 
 
-## 1-wire temperature sensors.
+## 1-wire temperature sensors
 
 1-wire temperature sensors are in wide use, as they are simple to use, and the bus configuration allows for many temperature sensors to be used at once, making e.g. distributed temperature measurements over an area.
 
