@@ -32,7 +32,7 @@ You can see how to connect a 1-wire sensor to a Riffle protoboard below.  We've 
 
 <img src="pics/one_wire_proto.png">
 
-## Code for i2c Temperature Sensor Datalogging with a Riffle
+## Code for 1-wire Temperature Sensor Datalogging with a Riffle
 
 Now that you've set up the circuit, here's how to get a Riffle logging 1-wire temperature values to a microSD card.
 
