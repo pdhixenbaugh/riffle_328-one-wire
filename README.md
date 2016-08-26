@@ -1,5 +1,7 @@
 # Measuring temperature using an i2c temperature sensor using a Riffle
 
+<img src="pics/one_wire_pic.png" width=200>
+
 ## i2c basics
 
 A [thermistor](https://en.wikipedia.org/wiki/Thermistor) provides a simple, precise way of measuring temperature.  The resistance of a thermistor is dependent on temperature in a particular way -- if we know this relationship, then we can measure temperature by measuring the resistance of the thermistor (something we can do with a simple electronic circuit.)
