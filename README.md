@@ -24,6 +24,10 @@ For 1-wire bus systems on 3.3V microcontrollers, a 4.7K 'pullup resistor' is req
 
 ## 1-wire Sensor on a Riffle Protoboard
 
+The Riffle protoboard connects to the end of the Riffle, making it easier to connect sensor wires to the Riffle in a secure fashion:
+
+<img src = "pics/proto.png">
+
 You can see how to connect a 1-wire sensor to a Riffle protoboard below.  We've chosen D3 as the Riffle pin on which we'll be reading the 1-wire signal line:
 
 <img src="pics/one_wire_proto.png">
