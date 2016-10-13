@@ -124,7 +124,7 @@ void loop() {
    if(DEBUG)  Serial.print("Temperature for the device 1 (index 0) is: ");
    if(DEBUG)  Serial.println(sensors.getTempCByIndex(0));  
   
-   one_temp = sensors.getTempCByIndex(0)
+   one_temp = sensors.getTempCByIndex(0);
 
   // turn off external sensors
   digitalWrite(hdr_pwr_enable, HIGH); //Turn power external header
